@@ -2,7 +2,7 @@
 """
 Created on Fri Nov  6 12:21:11 2015
 
-@author: Michel_home
+@author: MS
 """
 import sys
 
