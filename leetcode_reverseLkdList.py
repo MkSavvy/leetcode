@@ -9,6 +9,7 @@ work with, must return a point to a reversed version of the list
 
 Issues: ...
 """
+import sys
 
 class ListNode(object):
     def __init__(self,val):
@@ -21,27 +22,32 @@ class Solution(object):
     def reverseLL(self, head):
         
         cur = head  # pointer to the current node to look at
-        while cur != None:
+        
+        # we take the cur.next node and send it to beginning at head
+        while cur.next != None:
             anchor = head
             head = cur.next
             cur.next = cur.next.next
             head.next = anchor
             
+        return head
             
             
 if __name__ == "__main__":
-    myLL = ListNode('a')
-    string = list('string')
+    
+    fakehead = ListNode(None)
     
     # fill the linked list
-    current = myLL
-    for c in string:
-        current.next = ListNode(c)
-        current = current.next
+    last = fakehead
+    args = list(sys.argv[1])    
+    
+    for c in args[:]:
+        last.next = ListNode(c)
+        last = last.next
     
     # check the Solution
     sol = Solution()
-    revList = sol.reverseLL(myLL)
+    revList = sol.reverseLL(fakehead.next)
     
     cur = revList
     while cur != None:
