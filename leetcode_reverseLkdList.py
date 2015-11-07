@@ -10,13 +10,13 @@ work with, must return a point to a reversed version of the list
 Issues: ...
 """
 
-class LinkedList():
+class ListNode(object):
     def __init__(self,val):
         self.val = val
         self.next = None
         
 
-class Solution():
+class Solution(object):
     
     def reverseLL(self, head):
         
@@ -30,15 +30,21 @@ class Solution():
             
             
 if __name__ == "__main__":
-    myLL = LinkedList('a')
+    myLL = ListNode('a')
     string = list('string')
     
     # fill the linked list
     current = myLL
     for c in string:
-        current.next = LinkedList(c)
+        current.next = ListNode(c)
         current = current.next
     
     # check the Solution
     sol = Solution()
-    sol.reverseLL(myLL)
+    revList = sol.reverseLL(myLL)
+    
+    cur = revList
+    while cur != None:
+        print cur.val
+        cur = cur.next
+    
