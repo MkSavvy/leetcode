@@ -21,8 +21,10 @@ class Solution(object):
     
     def reverseLL(self, head):
         
+        if head == None:
+            return head
+            
         cur = head  # pointer to the current node to look at
-        
         # we take the cur.next node and send it to beginning at head
         while cur.next != None:
             anchor = head
